@@ -1,0 +1,360 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f6f9;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: #cbd5f5;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.sidebar a:hover {
+    background: #334155;
+}
+
+/* Main Content */
+.main {
+    margin-left: 220px;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Top Bar */
+.topbar {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Task Status Colors */
+.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.submitted {
+    color: blue;
+    font-weight: bold;
+}
+
+.completed {
+    color: green;
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.btn-add {
+    background: #22c55e;
+    color: white;
+}
+
+.btn-edit {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Form */
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background: #f1f5f9;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .main {
+        margin-left: 180px;
+    }
+}
+
+
+/* ✏️ Description Box */
+.desc-box {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.desc-box:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 5px rgba(59,130,246,0.3);
+}
+
+/* 👥 Member Multi Select */
+.member-select {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.member-select option {
+    padding: 8px;
+}
+
+.member-select option:checked {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Small help text */
+small {
+    color: #666;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.member-box {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.member-item {
+    display: block;
+    margin-bottom: 6px;
+    cursor: pointer;
+}
+
+.member-item input {
+    margin-right: 8px;
+}
+
+/* Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+/* Modal Box */
+.modal-content {
+    background: #ffffff;
+    width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin: 60px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Title */
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #111827;
+}
+
+/* Inputs */
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 4px rgba(59,130,246,0.3);
+}
+
+/* Member Grid */
+.member-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    max-height: 120px;
+    overflow-y: auto;
+    border: 1px solid #e5e7eb;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f9fafb;
+}
+
+/* Member Item */
+.member-box label {
+    background: white;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.member-box input {
+    margin-right: 5px;
+}
+
+/* Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-edit {
+    background: #3b82f6;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: #ef4444;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-edit:hover { background: #2563eb; }
+.btn-cancel:hover { background: #dc2626; }
+
+
+.submission-box {
+    background: #f9fafb;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.submission-box a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    background: #f1f5f9;
+    padding: 10px;
+}
+
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.submitted {
+    color: blue;
+    font-weight: bold;
+}
+
+table a {
+    color: #3b82f6;
+    text-decoration: none;
+}
